@@ -1,0 +1,146 @@
+/* Chatbox Container */
+#chatbox {
+    width: 350px;
+    height: 500px;
+    background-color: #f0f0f0;
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Keep messages at the bottom */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Message Area - where chat messages appear */
+  #message-area {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 15px;
+  }
+  
+  /* Input Area */
+  #input-area {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  #userInput {
+    width: 70%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  #sendMessage {
+    width: 25%;
+    background-color: #ffb6c1;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Popup Styles */
+  #popup {
+    display: none;
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+  }
+  
+  #popupMessage {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  #closePopup {
+    background-color: #ff6392;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .message {
+    padding: 10px 14px;
+    margin: 6px 0;
+    border-radius: 12px;
+    max-width: 80%;
+    line-height: 1.4;
+  }
+  
+  .user {
+    background-color: #d1f0ff;
+    align-self: flex-end;
+    text-align: right;
+  }
+  .bunny-speech-cloud {
+    position: absolute;
+    bottom: 250px;
+    left: 130px; /* adjust this if the bubble overlaps the bunny */
+    background: #ffffff;
+    border-radius: 25px;
+    padding: 20px 30px;
+    width: 380px; 
+    height: auto;;             /* Set fixed width for horizontal space */
+    font-size: 16px;
+    line-height: 1.5;
+    color: #444;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    display: none;
+    z-index: 10;
+  }
+  
+  .bunny-speech-cloud::after {
+    content: "";
+    position: absolute;
+    bottom: -12px;
+    left: 60px; /* Shift the pointer under the left part of the bubble */
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    box-shadow: -10px 10px 0 white, -20px 20px 0 white;
+  }
+  
+  
+  #chatbox {
+    width: 300px;
+    max-height: 400px;
+    margin: 20px;
+    padding: 10px;
+    border: 2px solid #f2a1c2;
+    border-radius: 15px;
+    background-color: #fff5f8;
+    overflow-y: auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .chat-message {
+    padding: 10px 12px;
+    margin: 8px 0;
+    border-radius: 12px;
+    max-width: 80%;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  
+  .chat-message.user {
+    background-color: #d1e7dd;
+    align-self: flex-end;
+    text-align: right;
+    margin-left: auto;
+  }
+  
+  .chat-message.bunny {
+    background-color: #fde2e2;
+    align-self: flex-start;
+    text-align: left;
+    margin-right: auto;
+  }
+  

@@ -1,0 +1,368 @@
+/* General layout */
+/* General layout */
+/* General layout */
+body {
+    background-color: rgb(245, 241, 241);  /* Set the background to white */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  /* Background Curve */
+  body::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 150%;
+    height: 200px;
+    background-color: #cfe0f9;  /* You can keep this if you'd like some light background details */
+    border-top-left-radius: 100% 100px;
+    border-top-right-radius: 100% 100px;
+    z-index: -1;
+  }
+  
+  /* Bunny styles and other elements here... */
+  
+  
+  /* Bunny */
+  .rabbit {
+    position: relative;
+    width: 200px;
+    height: 250px;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: moveRabbit 5s ease-in-out infinite;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  }
+  
+  /* Animation */
+  @keyframes moveRabbit {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(20px);
+    }
+  }
+  
+  /* Ears */
+  .ear-left, .ear-right {
+    position: absolute;
+    top: -60px;
+    width: 30px;
+    height: 120px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 3.5px solid black;
+    animation: earMovement 4s ease-in-out infinite;
+  }
+  
+  .ear-left::before, .ear-right::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 80px;
+    background-color: #fbd3d1;
+    border-radius: 50%;
+    top: 15px;
+    left: 5px;
+  }
+  
+  .ear-left {
+    left: 20px;
+    transform: rotate(-5deg);
+  }
+  
+  .ear-right {
+    right: 20px;
+    transform: rotate(5deg);
+  }
+  
+  @keyframes earMovement {
+    0%, 100% {
+      transform: rotate(0deg) translateY(0);
+    }
+    50% {
+      transform: rotate(0deg) translateY(-10px);
+    }
+  }
+  
+  /* Eyes */
+  .eye {
+    position: absolute;
+    top: 70px;
+    width: 35px;
+    height: 50px;
+    background-color: white;
+    border-radius: 60%;
+    border: 3.5px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Pupil up */
+    overflow: hidden;
+  }
+  
+  .eye-inner {
+    width: 15px;
+    height: 28px;
+    background-color: black;
+    border-radius: 50%;
+    margin-top: 8px; /* Pupil toward top */
+    position: relative;
+  }
+  
+  .sparkle {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    width: 6px;
+    height: 6px;
+    background-color: #fff;
+    border-radius: 50%;
+    animation: sparkleEyes 1s ease-in-out infinite alternate;
+  }
+  
+  .left-eye {
+    left: 35px;
+  }
+  
+  .right-eye {
+    right: 35px;
+  }
+  
+  @keyframes sparkleEyes {
+    0% {
+      transform: scale(0.8);
+      opacity: 0.5;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* Nose */
+  .nose {
+    position: absolute;
+    top: 125px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 15px;
+    background-color: rgb(249, 218, 223);
+    border-radius: 50%;
+    z-index: 2;
+    border: 2px solid #000;
+  }
+  
+  /* Mouth (Smiling Animation) */
+  .mouth {
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 15px;
+    border-bottom: 4px solid black;
+    border-radius: 0 0 50% 50%;
+    animation: smile 2s infinite alternate ease-in-out;
+  }
+  
+  @keyframes smile {
+    0% {
+      height: 10px;
+      width: 25px;
+    }
+    100% {
+      height: 20px;
+      width: 35px;
+    }
+  }
+  
+
+  .cheek {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: pink;
+    top: 150px;
+    transform: rotate(-45deg);
+    animation: pulse 2s infinite;
+  }
+  
+  .left-cheek {
+    left: 30px;
+  }
+  
+  .right-cheek {
+    right: 30px;
+  }
+  
+  /* Heart shape using ::before and ::after */
+  .cheek::before,
+  .cheek::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 18px;
+    background: pink;
+    border-radius: 50%;
+  }
+  
+  .cheek::before {
+    top: -10px;
+    left: 0;
+  }
+  
+  .cheek::after {
+    left: 10px;
+    top: 0;
+  }
+  
+  /* Optional: make it faint */
+  .cheek,
+  .cheek::before,
+  .cheek::after {
+    background: rgba(255, 182, 193, 0.5); /* light pink */
+  }
+  
+  /* Optional: heart pulsing animation */
+  @keyframes pulse {
+    0%, 100% {
+      transform: rotate(-45deg) scale(1);
+    }
+    50% {
+      transform: rotate(-45deg) scale(1.1);
+    }
+  }
+  
+  /* Whiskers */
+  .whisker-left, .whisker-right {
+    position: absolute;
+    top: 125px;
+    width: 40px;
+    height: 2px;
+    background-color: rgb(198, 192, 192);
+  }
+  
+  .whisker-left {
+    left: -40px;
+    transform: rotate(10deg);
+  }
+  
+  .whisker-right {
+    right: -40px;
+    transform: rotate(-10deg);
+  }
+   .whisker-left, .whisker-right {
+    position: absolute;
+    top: 125px;
+    width: 40px;
+    height: 2px;
+    background-color: rgb(198, 192, 192);
+  }
+  
+  .whisker-left {
+    left: -40px;
+    transform: rotate(10deg);
+  }
+  
+  .whisker-right {
+    right: -40px;
+    transform: rotate(-10deg);
+  }
+  
+  /* Arms */
+  .arm-left, .arm-right {
+    position: absolute;
+    top: 160px;
+    width: 30px;
+    height: 60px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+  }
+  
+  .arm-left {
+    left: -20px;
+    transform: rotate(20deg);
+  }
+  
+  .arm-right {
+    right: -20px;
+    transform: rotate(-20deg);
+  }
+  
+  /* Legs */
+  .leg-left, .leg-right {
+    position: absolute;
+    bottom: -30px;
+    width: 40px;
+    height: 70px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+  }
+  
+  .leg-left {
+    left: 40px;
+  }
+  
+  .leg-right {
+    right: 40px;
+  }
+  
+  /* Tail */
+  .tailright {
+    position: absolute;
+    bottom: 20px;
+    left: -30px;
+    
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  }
+  .tailleft {
+    position: absolute;
+    bottom: 20px;
+     right  : -30px;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  }
+
+
+
+
+  .leftlegcircle {
+    position: absolute;
+    bottom:-30px;
+     right  :120px;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  }
+  .rightlegcircle {
+    position: absolute;
+    bottom:-30px;
+     right  :45px;
+    width: 30px;
+    height: 30px;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 2px solid #ddd;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+  }
